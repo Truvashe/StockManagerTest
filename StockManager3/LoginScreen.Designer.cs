@@ -35,6 +35,7 @@
             connect_loginscrn = new Button();
             label1 = new Label();
             button1 = new Button();
+            LoginSettingsLabel = new Label();
             SuspendLayout();
             // 
             // label2
@@ -58,8 +59,10 @@
             // 
             mdptxtbox.Location = new Point(350, 194);
             mdptxtbox.Name = "mdptxtbox";
+            mdptxtbox.PasswordChar = '●';
             mdptxtbox.Size = new Size(100, 23);
             mdptxtbox.TabIndex = 3;
+            mdptxtbox.TextChanged += mdptxtbox_TextChanged;
             // 
             // connect_loginscrn
             // 
@@ -96,6 +99,17 @@
             button1.Size = new Size(25, 25);
             button1.TabIndex = 6;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // LoginSettingsLabel
+            // 
+            LoginSettingsLabel.AutoSize = true;
+            LoginSettingsLabel.Dock = DockStyle.Bottom;
+            LoginSettingsLabel.Location = new Point(0, 346);
+            LoginSettingsLabel.Name = "LoginSettingsLabel";
+            LoginSettingsLabel.Size = new Size(78, 15);
+            LoginSettingsLabel.TabIndex = 7;
+            LoginSettingsLabel.Text = "Loginsettings";
             // 
             // LoginScreen
             // 
@@ -103,6 +117,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(784, 361);
+            Controls.Add(LoginSettingsLabel);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(connect_loginscrn);
@@ -123,5 +138,6 @@
         private Button connect_loginscrn;
         private Label label1;
         private Button button1;
+        private Label LoginSettingsLabel;
     }
 }
