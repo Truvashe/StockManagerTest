@@ -130,7 +130,6 @@ namespace StockManager3
                     try
                     {
                         connection.Open();
-                        MessageBox.Show("Connection succesfull");
 
 
                         //we use COUNT(1) to be able to use the command.ExecuteScalar() wich returns only one value in this case we want to return the value of matching username/password
@@ -146,7 +145,10 @@ namespace StockManager3
 
                             if (usercount > 0)
                             {
-                                MessageBox.Show("Login succesfull");
+                                Dashboard dashboard = new Dashboard(this);
+                                Hide();
+                                dashboard.ShowDialog(this);
+                                Close();
                             }
                             else
                             {
@@ -190,7 +192,7 @@ namespace StockManager3
         {
             LoginSettings loginSettings = new LoginSettings(this);
 
-            loginSettings.Show();
+            loginSettings.ShowDialog();
         }
 
     }

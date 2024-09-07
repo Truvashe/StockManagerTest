@@ -59,5 +59,26 @@ namespace StockManager3.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap services_parametres_et_icone_d_engrenage_gris {
+            get {
+                object obj = ResourceManager.GetObject("services-parametres-et-icone-d-engrenage-gris", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_profile_icon_profile_avatar_user_icon_male_icon_face_icon_profile_icon_free_png {
+            get {
+                object obj = ResourceManager.GetObject("user-profile-icon-profile-avatar-user-icon-male-icon-face-icon-profile-icon-free-" +
+                        "png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
