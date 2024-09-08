@@ -20,6 +20,8 @@ namespace StockManager3
             {
                 checkloginsettingsfile();
             }
+
+            adminlogin();
         }
 
         public void showlabel()
@@ -194,6 +196,61 @@ namespace StockManager3
 
             loginSettings.ShowDialog();
         }
+
+        private void adminlogin()
+        {
+                //Authentificate The Pass and User using SQL
+                //mysql connection string : string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
+                using (MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+
+
+                        //we use COUNT(1) to be able to use the command.ExecuteScalar() wich returns only one value in this case we want to return the value of matching username/password
+                        string query = "SELECT COUNT(1) FROM users WHERE username = @username AND password = @password";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@username", "mohamed");
+                            command.Parameters.AddWithValue("@password", "med");
+
+                            //Convert what command.ExecuteScalar returns into an Int
+                            int usercount = Convert.ToInt32(command.ExecuteScalar());
+
+                            if (usercount > 0)
+                            {
+                                Dashboard dashboard = new Dashboard(this);
+                                Hide();
+                                dashboard.ShowDialog(this);
+                                Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Login Failed");
+                            }
+                        }
+
+                    }
+                    catch (MySqlException x)
+                    {
+                        //ERROR from sql
+                        MessageBox.Show($"Connection unsuccesfull :(\n{x.Message}");
+                    }
+                    catch (Exception x)
+                    {
+                        //ERROR from program
+                        MessageBox.Show($"Connection unsuccesfull :(\n{x.Message}");
+                    }
+                    finally
+                    {
+                        MessageBox.Show("Connection closed");
+                    }
+                }
+
+            }
 
     }
 }

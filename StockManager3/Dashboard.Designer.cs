@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             Menu = new Panel();
+            button1 = new Button();
             setingsbtn = new Button();
             stockbtn = new Button();
             Hotelbtn = new Button();
@@ -42,10 +43,14 @@
             pictureBox2 = new PictureBox();
             date = new Label();
             graphventepannel = new Panel();
-            splitContainerdashboard = new SplitContainer();
-            bottompanneldashboard = new Panel();
-            button1 = new Button();
+            label2 = new Label();
             cartesianChartventes = new LiveCharts.WinForms.CartesianChart();
+            splitContainerdashboard = new SplitContainer();
+            label1 = new Label();
+            pieChartProfit = new LiveCharts.WinForms.PieChart();
+            label3 = new Label();
+            racebar = new LiveCharts.WinForms.CartesianChart();
+            bottompanneldashboard = new Panel();
             Menu.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -53,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             graphventepannel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerdashboard).BeginInit();
+            splitContainerdashboard.Panel1.SuspendLayout();
+            splitContainerdashboard.Panel2.SuspendLayout();
             splitContainerdashboard.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,6 +77,18 @@
             Menu.Name = "Menu";
             Menu.Size = new Size(200, 681);
             Menu.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.Dock = DockStyle.Top;
+            button1.FlatStyle = FlatStyle.System;
+            button1.Location = new Point(0, 375);
+            button1.Name = "button1";
+            button1.Size = new Size(200, 100);
+            button1.TabIndex = 5;
+            button1.Text = "Bills";
+            button1.UseVisualStyleBackColor = true;
             // 
             // setingsbtn
             // 
@@ -179,6 +198,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Cursor = Cursors.Hand;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(1027, 22);
@@ -201,61 +221,114 @@
             // 
             // graphventepannel
             // 
+            graphventepannel.Controls.Add(label2);
             graphventepannel.Controls.Add(cartesianChartventes);
             graphventepannel.Dock = DockStyle.Top;
             graphventepannel.Location = new Point(200, 75);
             graphventepannel.Name = "graphventepannel";
-            graphventepannel.Size = new Size(1064, 350);
+            graphventepannel.Size = new Size(1064, 300);
             graphventepannel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(644, 272);
+            label2.Name = "label2";
+            label2.Size = new Size(151, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Ventes des 30 derniers jours";
+            // 
+            // cartesianChartventes
+            // 
+            cartesianChartventes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cartesianChartventes.BackColor = SystemColors.ControlLight;
+            cartesianChartventes.Cursor = Cursors.Cross;
+            cartesianChartventes.Location = new Point(370, 3);
+            cartesianChartventes.Name = "cartesianChartventes";
+            cartesianChartventes.Size = new Size(682, 266);
+            cartesianChartventes.TabIndex = 0;
+            cartesianChartventes.Text = "cartesianChart1";
+            cartesianChartventes.ChildChanged += cartesianChart1_ChildChanged;
             // 
             // splitContainerdashboard
             // 
             splitContainerdashboard.Dock = DockStyle.Top;
-            splitContainerdashboard.Location = new Point(200, 425);
+            splitContainerdashboard.IsSplitterFixed = true;
+            splitContainerdashboard.Location = new Point(200, 375);
             splitContainerdashboard.Name = "splitContainerdashboard";
-            splitContainerdashboard.Size = new Size(1064, 175);
+            // 
+            // splitContainerdashboard.Panel1
+            // 
+            splitContainerdashboard.Panel1.Controls.Add(label1);
+            splitContainerdashboard.Panel1.Controls.Add(pieChartProfit);
+            // 
+            // splitContainerdashboard.Panel2
+            // 
+            splitContainerdashboard.Panel2.Controls.Add(label3);
+            splitContainerdashboard.Panel2.Controls.Add(racebar);
+            splitContainerdashboard.Size = new Size(1064, 232);
             splitContainerdashboard.SplitterDistance = 354;
+            splitContainerdashboard.SplitterWidth = 1;
             splitContainerdashboard.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(137, 178);
+            label1.Name = "label1";
+            label1.Size = new Size(79, 15);
+            label1.TabIndex = 1;
+            label1.Text = "Taux de profit";
+            // 
+            // pieChartProfit
+            // 
+            pieChartProfit.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pieChartProfit.BackColor = SystemColors.ControlLight;
+            pieChartProfit.Location = new Point(6, 6);
+            pieChartProfit.Name = "pieChartProfit";
+            pieChartProfit.Size = new Size(345, 169);
+            pieChartProfit.TabIndex = 0;
+            pieChartProfit.Text = "Profit from sales";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(306, 181);
+            label3.Name = "label3";
+            label3.Size = new Size(121, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Top10 produits vendu";
+            // 
+            // racebar
+            // 
+            racebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            racebar.BackColor = SystemColors.ControlLight;
+            racebar.Location = new Point(15, 6);
+            racebar.Name = "racebar";
+            racebar.Size = new Size(691, 172);
+            racebar.TabIndex = 0;
+            racebar.Text = "racebar";
             // 
             // bottompanneldashboard
             // 
-            bottompanneldashboard.Dock = DockStyle.Fill;
-            bottompanneldashboard.Location = new Point(200, 600);
+            bottompanneldashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            bottompanneldashboard.BackColor = SystemColors.ControlLight;
+            bottompanneldashboard.Location = new Point(200, 606);
             bottompanneldashboard.Name = "bottompanneldashboard";
-            bottompanneldashboard.Size = new Size(1064, 81);
+            bottompanneldashboard.Size = new Size(1064, 75);
             bottompanneldashboard.TabIndex = 4;
-            // 
-            // button1
-            // 
-            button1.Cursor = Cursors.Hand;
-            button1.Dock = DockStyle.Top;
-            button1.FlatStyle = FlatStyle.System;
-            button1.Location = new Point(0, 375);
-            button1.Name = "button1";
-            button1.Size = new Size(200, 100);
-            button1.TabIndex = 5;
-            button1.Text = "Bills";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // cartesianChartventes
-            // 
-            cartesianChartventes.Location = new Point(361, 6);
-            cartesianChartventes.Name = "cartesianChartventes";
-            cartesianChartventes.Size = new Size(691, 338);
-            cartesianChartventes.TabIndex = 0;
-            cartesianChartventes.Text = "cartesianChart1";
-            cartesianChartventes.ChildChanged += cartesianChart1_ChildChanged;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1264, 681);
-            Controls.Add(bottompanneldashboard);
             Controls.Add(splitContainerdashboard);
+            Controls.Add(bottompanneldashboard);
             Controls.Add(graphventepannel);
             Controls.Add(panel2);
             Controls.Add(Menu);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Dashboard";
             Text = "StockManager V0.2";
             Load += Dashboard_Load;
@@ -266,6 +339,11 @@
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             graphventepannel.ResumeLayout(false);
+            graphventepannel.PerformLayout();
+            splitContainerdashboard.Panel1.ResumeLayout(false);
+            splitContainerdashboard.Panel1.PerformLayout();
+            splitContainerdashboard.Panel2.ResumeLayout(false);
+            splitContainerdashboard.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerdashboard).EndInit();
             splitContainerdashboard.ResumeLayout(false);
             ResumeLayout(false);
@@ -290,5 +368,10 @@
         private Panel bottompanneldashboard;
         private Button button1;
         private LiveCharts.WinForms.CartesianChart cartesianChartventes;
+        private LiveCharts.WinForms.PieChart pieChartProfit;
+        private Label label1;
+        private Label label2;
+        private LiveCharts.WinForms.CartesianChart racebar;
+        private Label label3;
     }
 }
