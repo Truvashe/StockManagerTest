@@ -214,7 +214,7 @@
             date.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             date.Location = new Point(0, 0);
             date.Name = "date";
-            date.Size = new Size(137, 75);
+            date.Size = new Size(351, 75);
             date.TabIndex = 2;
             date.Text = "Lundi 20:09\r\n07/09/2024";
             date.TextAlign = ContentAlignment.MiddleLeft;
@@ -232,7 +232,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(644, 272);
+            label2.Location = new Point(461, 272);
             label2.Name = "label2";
             label2.Size = new Size(151, 15);
             label2.TabIndex = 2;
@@ -243,9 +243,9 @@
             cartesianChartventes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cartesianChartventes.BackColor = SystemColors.ControlLight;
             cartesianChartventes.Cursor = Cursors.Cross;
-            cartesianChartventes.Location = new Point(370, 3);
+            cartesianChartventes.Location = new Point(6, 3);
             cartesianChartventes.Name = "cartesianChartventes";
-            cartesianChartventes.Size = new Size(682, 266);
+            cartesianChartventes.Size = new Size(1046, 266);
             cartesianChartventes.TabIndex = 0;
             cartesianChartventes.Text = "cartesianChart1";
             cartesianChartventes.ChildChanged += cartesianChart1_ChildChanged;
@@ -274,7 +274,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(137, 178);
+            label1.Location = new Point(143, 181);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
             label1.TabIndex = 1;
@@ -284,9 +284,10 @@
             // 
             pieChartProfit.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pieChartProfit.BackColor = SystemColors.ControlLight;
+            pieChartProfit.Cursor = Cursors.Cross;
             pieChartProfit.Location = new Point(6, 6);
             pieChartProfit.Name = "pieChartProfit";
-            pieChartProfit.Size = new Size(345, 169);
+            pieChartProfit.Size = new Size(345, 172);
             pieChartProfit.TabIndex = 0;
             pieChartProfit.Text = "Profit from sales";
             // 
@@ -303,9 +304,10 @@
             // 
             racebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             racebar.BackColor = SystemColors.ControlLight;
+            racebar.Cursor = Cursors.Cross;
             racebar.Location = new Point(15, 6);
             racebar.Name = "racebar";
-            racebar.Size = new Size(691, 172);
+            racebar.Size = new Size(700, 172);
             racebar.TabIndex = 0;
             racebar.Text = "racebar";
             // 

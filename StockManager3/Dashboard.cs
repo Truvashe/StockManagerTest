@@ -14,23 +14,34 @@ using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.WinForms;
+using System.Diagnostics;
 
 namespace StockManager3
 {
     public partial class Dashboard : Form
     {
         private LoginScreen loginScreen;
+        public string username { get; set; }
 
-        public Dashboard(LoginScreen loginScreen)
+        public Dashboard(LoginScreen loginScreen, string username)
         {
             InitializeComponent();
             this.loginScreen = loginScreen;
+            this.username = username;
 
+            //MISC
+            setupuserandrole();
+
+            //timer
+            InitializeTimer();
 
             //load graphs
             LoadChartData();
             LoadPieChart();
             loadracebar();
+
+            
+
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -53,7 +64,63 @@ namespace StockManager3
 
         }
 
-        //graph typshi
+        //START of misc
+        private void setupuserandrole()
+        {
+            //Authentificate The Pass and User using SQL
+            //mysql connection string : string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+
+            using (MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+
+                    //we use COUNT(1) to be able to use the command.ExecuteScalar() wich returns only one value in this case we want to return the value of matching username/password
+                    string query = "SELECT username,role FROM users WHERE username = @username";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", username);
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Retrieve the role from the reader
+                                string role = reader["role"].ToString();
+
+                                // Set the text properties of the labels
+                                usernamelabel.Text = username;
+                                rolelabel.Text = role;
+                            }
+                            else
+                            {
+                                // Handle case where no data is returned
+                                MessageBox.Show("No user found with the specified username.");
+                            }
+                        }
+                    }
+
+                }
+                catch (MySqlException x)
+                {
+                    //ERROR from sql
+                    MessageBox.Show($"Connection unsuccesfull :(\n{x.Message}");
+                }
+                catch (Exception x)
+                {
+                    //ERROR from program
+                    MessageBox.Show($"Connection unsuccesfull :(\n{x.Message}");
+                }
+            }
+
+        }
+
+        //END of misc
+
+        //START of graph typshi
 
         public class SalesData
         {
@@ -231,8 +298,10 @@ namespace StockManager3
             {
                 racebar.Series.Add(new RowSeries
                 {
-                    Title = $"{product.ProductName}",
-                    Values = new ChartValues<int> { product.TotalQuantitySold }
+                    Title = product.ProductName,
+                    Values = new ChartValues<int> { product.TotalQuantitySold },
+                    DataLabels = true,
+                    LabelPoint = point => $"{product.ProductName}: {product.TotalQuantitySold}",
                 });
             }
 
@@ -255,12 +324,48 @@ namespace StockManager3
 
             racebar.AxisY.Add(new Axis
             {
-                Title = "Product Name",
-                Labels = topProducts.Select(p => p.ProductName).ToArray(),
+                Title = "Product",
+                LabelFormatter = value => ""
+                
             });
 
         }
 
+        //END of graphs typshi
+
+        //START of Timer and updated stuff
+        private System.Windows.Forms.Timer updateTimer;
+
+        private void InitializeTimer()
+        {
+            updateTimer = new System.Windows.Forms.Timer();
+            updateTimer.Interval = 1000; // Update every second
+            updateTimer.Tick += UpdateTimer_Tick;
+            updateTimer.Start();
+        }
+
+        // Timer Tick Event Handler
+        // Use this function to put in anything that needs to get updated, the update is happening every second
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            updatedateandtimelabel();
+        }
+
+        private void updatedateandtimelabel()
+        {
+            // Get the current day and time
+            string dayName = DateTime.Now.ToString("dddd");
+            string formattedDate = DateTime.Now.ToString("dd/MM/yyyy");
+            string formattedTime = DateTime.Now.ToString("HH:mm:ss");
+
+            // Capitalize the first letter of the day's name
+            string capitalizedDayName = char.ToUpper(dayName[0]) + dayName.Substring(1);
+
+            // Set the text of the date control
+            date.Text = $"{capitalizedDayName} {formattedTime}\n{formattedDate}";
+        }
+
+        //END of Timer and updated stuff
     }
 }
 

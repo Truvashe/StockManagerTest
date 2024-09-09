@@ -147,7 +147,7 @@ namespace StockManager3
 
                             if (usercount > 0)
                             {
-                                Dashboard dashboard = new Dashboard(this);
+                                Dashboard dashboard = new Dashboard(this,idtxtbox.Text);
                                 Hide();
                                 dashboard.ShowDialog(this);
                                 Close();
@@ -222,7 +222,7 @@ namespace StockManager3
 
                             if (usercount > 0)
                             {
-                                Dashboard dashboard = new Dashboard(this);
+                                Dashboard dashboard = new Dashboard(this,"mohamed");
                                 Hide();
                                 dashboard.ShowDialog(this);
                                 Close();
