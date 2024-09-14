@@ -21,6 +21,7 @@ namespace StockManager3
                 checkloginsettingsfile();
             }
 
+
             adminlogin();
         }
 

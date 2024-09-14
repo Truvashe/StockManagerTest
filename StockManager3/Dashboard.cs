@@ -40,7 +40,7 @@ namespace StockManager3
             LoadPieChart();
             loadracebar();
 
-            
+
 
         }
 
@@ -67,9 +67,6 @@ namespace StockManager3
         //START of misc
         private void setupuserandrole()
         {
-            //Authentificate The Pass and User using SQL
-            //mysql connection string : string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
-
             using (MySqlConnection connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString))
             {
                 try
@@ -173,56 +170,56 @@ namespace StockManager3
 
         private void LoadChartData()
         {
-                var salesData = GetSalesData();
+            var salesData = GetSalesData();
 
-                // Create Series for each type of data
-                var totalSeries = new LineSeries
-                {
-                    Title = "Total Sales",
-                    Values = new ChartValues<decimal>()
-                };
+            // Create Series for each type of data
+            var totalSeries = new LineSeries
+            {
+                Title = "Total Sales",
+                Values = new ChartValues<decimal>()
+            };
 
-                var profitSeries = new LineSeries
-                {
-                    Title = "Profit",
-                    Values = new ChartValues<decimal>()
-                };
+            var profitSeries = new LineSeries
+            {
+                Title = "Profit",
+                Values = new ChartValues<decimal>()
+            };
 
-                foreach (var data in salesData)
-                {
-                    totalSeries.Values.Add(data.Total);
-                    profitSeries.Values.Add(data.Profit);
-                }
+            foreach (var data in salesData)
+            {
+                totalSeries.Values.Add(data.Total);
+                profitSeries.Values.Add(data.Profit);
+            }
 
-                // Configure the chart
-                cartesianChartventes.Series = new SeriesCollection
+            // Configure the chart
+            cartesianChartventes.Series = new SeriesCollection
                 {
                 totalSeries,
                 profitSeries
                 };
 
-                cartesianChartventes.AxisX.Add(new Axis
-                {
-                    Title = "Date",
-                    Labels = salesData.Select(d => d.CreatedAt.ToShortDateString()).ToList()
-                });
+            cartesianChartventes.AxisX.Add(new Axis
+            {
+                Title = "Date",
+                Labels = salesData.Select(d => d.CreatedAt.ToShortDateString()).ToList()
+            });
 
-                cartesianChartventes.AxisY.Add(new Axis
-                {
-                    Title = "Amount",
-                    LabelFormatter = value => $"{value:0.##} Dh"
-                });
+            cartesianChartventes.AxisY.Add(new Axis
+            {
+                Title = "Amount",
+                LabelFormatter = value => $"{value:0.##} Dh"
+            });
         }
 
         private void LoadPieChart()
         {
             var salesData = GetSalesData();
 
-            
 
-            decimal totalSupplierPrice=0;
-            decimal profit=0;
-            
+
+            decimal totalSupplierPrice = 0;
+            decimal profit = 0;
+
 
             foreach (var data in salesData)
             {
@@ -318,7 +315,7 @@ namespace StockManager3
                 LabelFormatter = value => value.ToString("N0"),
                 Separator = new Separator
                 {
-                    Step =  step//something using min and max
+                    Step = step//something using min and max
                 }
             });
 
@@ -326,7 +323,7 @@ namespace StockManager3
             {
                 Title = "Product",
                 LabelFormatter = value => ""
-                
+
             });
 
         }
@@ -366,6 +363,15 @@ namespace StockManager3
         }
 
         //END of Timer and updated stuff
+
+        //START of clicking buttons
+
+        private void billmakerbtn_Click(object sender, EventArgs e)
+        {
+            Stock stockform = new Stock();
+
+            stockform.Show();
+        }
     }
 }
 

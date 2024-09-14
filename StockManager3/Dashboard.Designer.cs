@@ -141,6 +141,7 @@
             billmakerbtn.TabIndex = 1;
             billmakerbtn.Text = "Bill Maker";
             billmakerbtn.UseVisualStyleBackColor = true;
+            billmakerbtn.Click += billmakerbtn_Click;
             // 
             // panel1
             // 
@@ -226,7 +227,7 @@
             graphventepannel.Dock = DockStyle.Top;
             graphventepannel.Location = new Point(200, 75);
             graphventepannel.Name = "graphventepannel";
-            graphventepannel.Size = new Size(1064, 300);
+            graphventepannel.Size = new Size(1064, 288);
             graphventepannel.TabIndex = 2;
             // 
             // label2
@@ -254,7 +255,7 @@
             // 
             splitContainerdashboard.Dock = DockStyle.Top;
             splitContainerdashboard.IsSplitterFixed = true;
-            splitContainerdashboard.Location = new Point(200, 375);
+            splitContainerdashboard.Location = new Point(200, 363);
             splitContainerdashboard.Name = "splitContainerdashboard";
             // 
             // splitContainerdashboard.Panel1
@@ -307,7 +308,7 @@
             racebar.Cursor = Cursors.Cross;
             racebar.Location = new Point(15, 6);
             racebar.Name = "racebar";
-            racebar.Size = new Size(700, 172);
+            racebar.Size = new Size(682, 172);
             racebar.TabIndex = 0;
             racebar.Text = "racebar";
             // 
