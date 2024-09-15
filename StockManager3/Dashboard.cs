@@ -368,6 +368,11 @@ namespace StockManager3
 
         private void billmakerbtn_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void stockbtn_Click(object sender, EventArgs e)
+        {
             Stock stockform = new Stock();
 
             stockform.Show();

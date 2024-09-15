@@ -30,29 +30,37 @@
         {
             panel1 = new Panel();
             label10 = new Label();
-            textBox10 = new TextBox();
+            unittypetxtbox = new TextBox();
             label11 = new Label();
-            textBox11 = new TextBox();
+            supplierpricetxtbox = new TextBox();
             label8 = new Label();
-            textBox8 = new TextBox();
+            unittxtbox = new TextBox();
             label9 = new Label();
-            textBox9 = new TextBox();
+            pricetxtbox = new TextBox();
             label6 = new Label();
-            textBox6 = new TextBox();
+            brandtxtbox = new TextBox();
             label7 = new Label();
-            textBox7 = new TextBox();
+            descriptiontxtbox = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            suppliertxtbox = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            codetxtbox = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            instocktxtbox = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            nomtxtbox = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            commandboxtxtbox = new TextBox();
             addprdctbtn = new Button();
             panel2 = new Panel();
+            searchproducttxtbox = new TextBox();
+            searchproductbtn = new Button();
+            addemptyproductbtn = new Button();
+            allowdatachange = new CheckBox();
+            deleteproductbtn = new Button();
+            deleteproducttxtbox = new TextBox();
+            ReloadButton = new Button();
+            clearboxescheckbox = new CheckBox();
             label12 = new Label();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
@@ -64,33 +72,34 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.Control;
             panel1.Controls.Add(label10);
-            panel1.Controls.Add(textBox10);
+            panel1.Controls.Add(unittypetxtbox);
             panel1.Controls.Add(label11);
-            panel1.Controls.Add(textBox11);
+            panel1.Controls.Add(supplierpricetxtbox);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(textBox8);
+            panel1.Controls.Add(unittxtbox);
             panel1.Controls.Add(label9);
-            panel1.Controls.Add(textBox9);
+            panel1.Controls.Add(pricetxtbox);
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(textBox6);
+            panel1.Controls.Add(brandtxtbox);
             panel1.Controls.Add(label7);
-            panel1.Controls.Add(textBox7);
+            panel1.Controls.Add(descriptiontxtbox);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox4);
+            panel1.Controls.Add(suppliertxtbox);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(textBox5);
+            panel1.Controls.Add(codetxtbox);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(instocktxtbox);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(nomtxtbox);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(commandboxtxtbox);
             panel1.Controls.Add(addprdctbtn);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(200, 350);
             panel1.Name = "panel1";
-            panel1.Size = new Size(959, 100);
+            panel1.Size = new Size(961, 100);
             panel1.TabIndex = 0;
             // 
             // label10
@@ -102,12 +111,12 @@
             label10.TabIndex = 22;
             label10.Text = "Unit Type";
             // 
-            // textBox10
+            // unittypetxtbox
             // 
-            textBox10.Location = new Point(851, 41);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(100, 23);
-            textBox10.TabIndex = 21;
+            unittypetxtbox.Location = new Point(851, 41);
+            unittypetxtbox.Name = "unittypetxtbox";
+            unittypetxtbox.Size = new Size(100, 23);
+            unittypetxtbox.TabIndex = 21;
             // 
             // label11
             // 
@@ -118,12 +127,12 @@
             label11.TabIndex = 20;
             label11.Text = "Supplier Price";
             // 
-            // textBox11
+            // supplierpricetxtbox
             // 
-            textBox11.Location = new Point(851, 12);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(100, 23);
-            textBox11.TabIndex = 19;
+            supplierpricetxtbox.Location = new Point(851, 12);
+            supplierpricetxtbox.Name = "supplierpricetxtbox";
+            supplierpricetxtbox.Size = new Size(100, 23);
+            supplierpricetxtbox.TabIndex = 19;
             // 
             // label8
             // 
@@ -134,12 +143,12 @@
             label8.TabIndex = 18;
             label8.Text = "Unit";
             // 
-            // textBox8
+            // unittxtbox
             // 
-            textBox8.Location = new Point(663, 41);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 17;
+            unittxtbox.Location = new Point(663, 41);
+            unittxtbox.Name = "unittxtbox";
+            unittxtbox.Size = new Size(100, 23);
+            unittxtbox.TabIndex = 17;
             // 
             // label9
             // 
@@ -150,12 +159,12 @@
             label9.TabIndex = 16;
             label9.Text = "Price";
             // 
-            // textBox9
+            // pricetxtbox
             // 
-            textBox9.Location = new Point(663, 12);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(100, 23);
-            textBox9.TabIndex = 15;
+            pricetxtbox.Location = new Point(663, 12);
+            pricetxtbox.Name = "pricetxtbox";
+            pricetxtbox.Size = new Size(100, 23);
+            pricetxtbox.TabIndex = 15;
             // 
             // label6
             // 
@@ -166,12 +175,12 @@
             label6.TabIndex = 14;
             label6.Text = "Brand";
             // 
-            // textBox6
+            // brandtxtbox
             // 
-            textBox6.Location = new Point(475, 41);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 13;
+            brandtxtbox.Location = new Point(475, 41);
+            brandtxtbox.Name = "brandtxtbox";
+            brandtxtbox.Size = new Size(100, 23);
+            brandtxtbox.TabIndex = 13;
             // 
             // label7
             // 
@@ -182,12 +191,12 @@
             label7.TabIndex = 12;
             label7.Text = "Description";
             // 
-            // textBox7
+            // descriptiontxtbox
             // 
-            textBox7.Location = new Point(475, 12);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 11;
+            descriptiontxtbox.Location = new Point(475, 12);
+            descriptiontxtbox.Name = "descriptiontxtbox";
+            descriptiontxtbox.Size = new Size(100, 23);
+            descriptiontxtbox.TabIndex = 11;
             // 
             // label4
             // 
@@ -198,12 +207,12 @@
             label4.TabIndex = 10;
             label4.Text = "Supplier";
             // 
-            // textBox4
+            // suppliertxtbox
             // 
-            textBox4.Location = new Point(284, 41);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 9;
+            suppliertxtbox.Location = new Point(284, 41);
+            suppliertxtbox.Name = "suppliertxtbox";
+            suppliertxtbox.Size = new Size(100, 23);
+            suppliertxtbox.TabIndex = 9;
             // 
             // label5
             // 
@@ -214,12 +223,12 @@
             label5.TabIndex = 8;
             label5.Text = "Code";
             // 
-            // textBox5
+            // codetxtbox
             // 
-            textBox5.Location = new Point(284, 12);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 7;
+            codetxtbox.Location = new Point(284, 12);
+            codetxtbox.Name = "codetxtbox";
+            codetxtbox.Size = new Size(100, 23);
+            codetxtbox.TabIndex = 7;
             // 
             // label3
             // 
@@ -230,12 +239,12 @@
             label3.TabIndex = 6;
             label3.Text = "In Stock";
             // 
-            // textBox3
+            // instocktxtbox
             // 
-            textBox3.Location = new Point(97, 41);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 5;
+            instocktxtbox.Location = new Point(97, 41);
+            instocktxtbox.Name = "instocktxtbox";
+            instocktxtbox.Size = new Size(100, 23);
+            instocktxtbox.TabIndex = 5;
             // 
             // label2
             // 
@@ -246,12 +255,12 @@
             label2.TabIndex = 4;
             label2.Text = "Nom";
             // 
-            // textBox2
+            // nomtxtbox
             // 
-            textBox2.Location = new Point(97, 12);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
+            nomtxtbox.Location = new Point(97, 12);
+            nomtxtbox.Name = "nomtxtbox";
+            nomtxtbox.Size = new Size(100, 23);
+            nomtxtbox.TabIndex = 3;
             // 
             // label1
             // 
@@ -262,12 +271,12 @@
             label1.TabIndex = 2;
             label1.Text = "Command box";
             // 
-            // textBox1
+            // commandboxtxtbox
             // 
-            textBox1.Location = new Point(97, 71);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(748, 23);
-            textBox1.TabIndex = 1;
+            commandboxtxtbox.Location = new Point(97, 71);
+            commandboxtxtbox.Name = "commandboxtxtbox";
+            commandboxtxtbox.Size = new Size(748, 23);
+            commandboxtxtbox.TabIndex = 1;
             // 
             // addprdctbtn
             // 
@@ -275,18 +284,102 @@
             addprdctbtn.Name = "addprdctbtn";
             addprdctbtn.Size = new Size(100, 23);
             addprdctbtn.TabIndex = 0;
-            addprdctbtn.Text = "Add Product";
+            addprdctbtn.Text = "Submit";
             addprdctbtn.UseVisualStyleBackColor = true;
             addprdctbtn.Click += addprdctbtn_Click;
             // 
             // panel2
             // 
+            panel2.Controls.Add(searchproducttxtbox);
+            panel2.Controls.Add(searchproductbtn);
+            panel2.Controls.Add(addemptyproductbtn);
+            panel2.Controls.Add(allowdatachange);
+            panel2.Controls.Add(deleteproductbtn);
+            panel2.Controls.Add(deleteproducttxtbox);
+            panel2.Controls.Add(ReloadButton);
+            panel2.Controls.Add(clearboxescheckbox);
             panel2.Controls.Add(label12);
             panel2.Dock = DockStyle.Left;
-            panel2.Location = new Point(0, 100);
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(200, 350);
+            panel2.Size = new Size(200, 450);
             panel2.TabIndex = 1;
+            // 
+            // searchproducttxtbox
+            // 
+            searchproducttxtbox.Location = new Point(12, 182);
+            searchproducttxtbox.Name = "searchproducttxtbox";
+            searchproducttxtbox.Size = new Size(182, 23);
+            searchproducttxtbox.TabIndex = 27;
+            searchproducttxtbox.TextChanged += searchproducttxtbox_TextChanged;
+            // 
+            // searchproductbtn
+            // 
+            searchproductbtn.Location = new Point(12, 211);
+            searchproductbtn.Name = "searchproductbtn";
+            searchproductbtn.Size = new Size(182, 23);
+            searchproductbtn.TabIndex = 26;
+            searchproductbtn.Text = "Search Product";
+            searchproductbtn.UseVisualStyleBackColor = true;
+            searchproductbtn.Click += searchproductbtn_Click;
+            // 
+            // addemptyproductbtn
+            // 
+            addemptyproductbtn.Location = new Point(12, 69);
+            addemptyproductbtn.Name = "addemptyproductbtn";
+            addemptyproductbtn.Size = new Size(182, 23);
+            addemptyproductbtn.TabIndex = 25;
+            addemptyproductbtn.Text = "Add Empty Product";
+            addemptyproductbtn.UseVisualStyleBackColor = true;
+            addemptyproductbtn.Click += addemptyproductbtn_Click;
+            // 
+            // allowdatachange
+            // 
+            allowdatachange.AutoSize = true;
+            allowdatachange.Location = new Point(12, 300);
+            allowdatachange.Name = "allowdatachange";
+            allowdatachange.Size = new Size(158, 19);
+            allowdatachange.TabIndex = 23;
+            allowdatachange.Text = "Allow data edit from grid";
+            allowdatachange.UseVisualStyleBackColor = true;
+            allowdatachange.CheckedChanged += allowdatachange_CheckedChanged;
+            // 
+            // deleteproductbtn
+            // 
+            deleteproductbtn.Location = new Point(12, 138);
+            deleteproductbtn.Name = "deleteproductbtn";
+            deleteproductbtn.Size = new Size(182, 23);
+            deleteproductbtn.TabIndex = 24;
+            deleteproductbtn.Text = "Delete product";
+            deleteproductbtn.UseVisualStyleBackColor = true;
+            deleteproductbtn.Click += deleteproductbtn_Click;
+            // 
+            // deleteproducttxtbox
+            // 
+            deleteproducttxtbox.Location = new Point(12, 109);
+            deleteproducttxtbox.Name = "deleteproducttxtbox";
+            deleteproducttxtbox.Size = new Size(182, 23);
+            deleteproducttxtbox.TabIndex = 23;
+            // 
+            // ReloadButton
+            // 
+            ReloadButton.Location = new Point(12, 240);
+            ReloadButton.Name = "ReloadButton";
+            ReloadButton.Size = new Size(182, 23);
+            ReloadButton.TabIndex = 23;
+            ReloadButton.Text = "Reload Data";
+            ReloadButton.UseVisualStyleBackColor = true;
+            ReloadButton.Click += ReloadButton_Click;
+            // 
+            // clearboxescheckbox
+            // 
+            clearboxescheckbox.AutoSize = true;
+            clearboxescheckbox.Location = new Point(12, 325);
+            clearboxescheckbox.Name = "clearboxescheckbox";
+            clearboxescheckbox.Size = new Size(168, 19);
+            clearboxescheckbox.TabIndex = 23;
+            clearboxescheckbox.Text = "Clear Text Boxes on submit";
+            clearboxescheckbox.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -301,33 +394,36 @@
             // 
             panel3.Controls.Add(dataGridView1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(200, 100);
+            panel3.Location = new Point(200, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(759, 350);
+            panel3.Size = new Size(961, 450);
             panel3.TabIndex = 2;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Dock = DockStyle.Top;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(759, 350);
+            dataGridView1.Size = new Size(961, 350);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
             // 
             // Stock
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(959, 450);
+            ClientSize = new Size(1161, 450);
+            Controls.Add(panel1);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             Name = "Stock";
             Text = "Stock";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -338,30 +434,38 @@
         private Panel panel1;
         private Panel panel2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox commandboxtxtbox;
         private Button addprdctbtn;
         private Panel panel3;
         private DataGridView dataGridView1;
         private Label label6;
-        private TextBox textBox6;
+        private TextBox brandtxtbox;
         private Label label7;
-        private TextBox textBox7;
+        private TextBox descriptiontxtbox;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox suppliertxtbox;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox codetxtbox;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox instocktxtbox;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox nomtxtbox;
         private Label label10;
-        private TextBox textBox10;
+        private TextBox unittypetxtbox;
         private Label label11;
-        private TextBox textBox11;
+        private TextBox supplierpricetxtbox;
         private Label label8;
-        private TextBox textBox8;
+        private TextBox unittxtbox;
         private Label label9;
-        private TextBox textBox9;
+        private TextBox pricetxtbox;
         private Label label12;
+        private CheckBox clearboxescheckbox;
+        private Button ReloadButton;
+        private Button deleteproductbtn;
+        private TextBox deleteproducttxtbox;
+        private CheckBox allowdatachange;
+        private TextBox searchproducttxtbox;
+        private Button searchproductbtn;
+        private Button addemptyproductbtn;
     }
 }

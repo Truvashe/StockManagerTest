@@ -116,6 +116,7 @@
             stockbtn.TabIndex = 3;
             stockbtn.Text = "Stock";
             stockbtn.UseVisualStyleBackColor = true;
+            stockbtn.Click += stockbtn_Click;
             // 
             // Hotelbtn
             // 
@@ -267,7 +268,7 @@
             // 
             splitContainerdashboard.Panel2.Controls.Add(label3);
             splitContainerdashboard.Panel2.Controls.Add(racebar);
-            splitContainerdashboard.Size = new Size(1064, 232);
+            splitContainerdashboard.Size = new Size(1064, 237);
             splitContainerdashboard.SplitterDistance = 354;
             splitContainerdashboard.SplitterWidth = 1;
             splitContainerdashboard.TabIndex = 3;
@@ -275,7 +276,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(143, 181);
+            label1.Location = new Point(143, 186);
             label1.Name = "label1";
             label1.Size = new Size(79, 15);
             label1.TabIndex = 1;
@@ -288,14 +289,14 @@
             pieChartProfit.Cursor = Cursors.Cross;
             pieChartProfit.Location = new Point(6, 6);
             pieChartProfit.Name = "pieChartProfit";
-            pieChartProfit.Size = new Size(345, 172);
+            pieChartProfit.Size = new Size(345, 177);
             pieChartProfit.TabIndex = 0;
             pieChartProfit.Text = "Profit from sales";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(306, 181);
+            label3.Location = new Point(305, 186);
             label3.Name = "label3";
             label3.Size = new Size(121, 15);
             label3.TabIndex = 3;
@@ -306,16 +307,16 @@
             racebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             racebar.BackColor = SystemColors.ControlLight;
             racebar.Cursor = Cursors.Cross;
-            racebar.Location = new Point(15, 6);
+            racebar.Location = new Point(3, 6);
             racebar.Name = "racebar";
-            racebar.Size = new Size(682, 172);
+            racebar.Size = new Size(697, 177);
             racebar.TabIndex = 0;
             racebar.Text = "racebar";
             // 
             // bottompanneldashboard
             // 
-            bottompanneldashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             bottompanneldashboard.BackColor = SystemColors.ControlLight;
+            bottompanneldashboard.Dock = DockStyle.Bottom;
             bottompanneldashboard.Location = new Point(200, 606);
             bottompanneldashboard.Name = "bottompanneldashboard";
             bottompanneldashboard.Size = new Size(1064, 75);
