@@ -61,7 +61,6 @@
             deleteproducttxtbox = new TextBox();
             ReloadButton = new Button();
             clearboxescheckbox = new CheckBox();
-            label12 = new Label();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
             panel1.SuspendLayout();
@@ -97,9 +96,9 @@
             panel1.Controls.Add(commandboxtxtbox);
             panel1.Controls.Add(addprdctbtn);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(200, 350);
+            panel1.Location = new Point(200, 355);
             panel1.Name = "panel1";
-            panel1.Size = new Size(961, 100);
+            panel1.Size = new Size(984, 106);
             panel1.TabIndex = 0;
             // 
             // label10
@@ -298,24 +297,25 @@
             panel2.Controls.Add(deleteproducttxtbox);
             panel2.Controls.Add(ReloadButton);
             panel2.Controls.Add(clearboxescheckbox);
-            panel2.Controls.Add(label12);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(200, 450);
+            panel2.Size = new Size(200, 461);
             panel2.TabIndex = 1;
             // 
             // searchproducttxtbox
             // 
-            searchproducttxtbox.Location = new Point(12, 182);
+            searchproducttxtbox.Location = new Point(12, 83);
             searchproducttxtbox.Name = "searchproducttxtbox";
             searchproducttxtbox.Size = new Size(182, 23);
             searchproducttxtbox.TabIndex = 27;
             searchproducttxtbox.TextChanged += searchproducttxtbox_TextChanged;
+            searchproducttxtbox.Enter += searchproducttxtbox_Enter;
+            searchproducttxtbox.Leave += searchproducttxtbox_Leave;
             // 
             // searchproductbtn
             // 
-            searchproductbtn.Location = new Point(12, 211);
+            searchproductbtn.Location = new Point(12, 112);
             searchproductbtn.Name = "searchproductbtn";
             searchproductbtn.Size = new Size(182, 23);
             searchproductbtn.TabIndex = 26;
@@ -325,7 +325,7 @@
             // 
             // addemptyproductbtn
             // 
-            addemptyproductbtn.Location = new Point(12, 69);
+            addemptyproductbtn.Location = new Point(12, 220);
             addemptyproductbtn.Name = "addemptyproductbtn";
             addemptyproductbtn.Size = new Size(182, 23);
             addemptyproductbtn.TabIndex = 25;
@@ -336,7 +336,7 @@
             // allowdatachange
             // 
             allowdatachange.AutoSize = true;
-            allowdatachange.Location = new Point(12, 300);
+            allowdatachange.Location = new Point(12, 310);
             allowdatachange.Name = "allowdatachange";
             allowdatachange.Size = new Size(158, 19);
             allowdatachange.TabIndex = 23;
@@ -346,7 +346,7 @@
             // 
             // deleteproductbtn
             // 
-            deleteproductbtn.Location = new Point(12, 138);
+            deleteproductbtn.Location = new Point(12, 278);
             deleteproductbtn.Name = "deleteproductbtn";
             deleteproductbtn.Size = new Size(182, 23);
             deleteproductbtn.TabIndex = 24;
@@ -356,14 +356,14 @@
             // 
             // deleteproducttxtbox
             // 
-            deleteproducttxtbox.Location = new Point(12, 109);
+            deleteproducttxtbox.Location = new Point(12, 249);
             deleteproducttxtbox.Name = "deleteproducttxtbox";
             deleteproducttxtbox.Size = new Size(182, 23);
             deleteproducttxtbox.TabIndex = 23;
             // 
             // ReloadButton
             // 
-            ReloadButton.Location = new Point(12, 240);
+            ReloadButton.Location = new Point(12, 141);
             ReloadButton.Name = "ReloadButton";
             ReloadButton.Size = new Size(182, 23);
             ReloadButton.TabIndex = 23;
@@ -374,21 +374,12 @@
             // clearboxescheckbox
             // 
             clearboxescheckbox.AutoSize = true;
-            clearboxescheckbox.Location = new Point(12, 325);
+            clearboxescheckbox.Location = new Point(12, 335);
             clearboxescheckbox.Name = "clearboxescheckbox";
             clearboxescheckbox.Size = new Size(168, 19);
             clearboxescheckbox.TabIndex = 23;
             clearboxescheckbox.Text = "Clear Text Boxes on submit";
             clearboxescheckbox.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            label12.Dock = DockStyle.Top;
-            label12.Location = new Point(0, 0);
-            label12.Name = "label12";
-            label12.Size = new Size(200, 350);
-            label12.TabIndex = 0;
-            label12.Text = "label12";
             // 
             // panel3
             // 
@@ -396,7 +387,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(200, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(961, 450);
+            panel3.Size = new Size(984, 461);
             panel3.TabIndex = 2;
             // 
             // dataGridView1
@@ -405,7 +396,7 @@
             dataGridView1.Dock = DockStyle.Top;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(961, 350);
+            dataGridView1.Size = new Size(984, 355);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
@@ -414,7 +405,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1161, 450);
+            ClientSize = new Size(1184, 461);
             Controls.Add(panel1);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -458,7 +449,6 @@
         private TextBox unittxtbox;
         private Label label9;
         private TextBox pricetxtbox;
-        private Label label12;
         private CheckBox clearboxescheckbox;
         private Button ReloadButton;
         private Button deleteproductbtn;

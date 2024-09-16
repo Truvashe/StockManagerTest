@@ -221,15 +221,16 @@ namespace StockManager3
             string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
             string query = "SELECT id, name, code, description, price, suplier_price, in_stock, suplier, brand, unit, unit_type, created_at FROM products ORDER BY id DESC";
-            if (searchproducttxtbox.Text != "")
+            if (!string.IsNullOrWhiteSpace(searchproducttxtbox.Text) || searchproducttxtbox.Text!="Search Product")
             {
-                query = @"SELECT * FROM products
-                    WHERE id LIKE '%@searchTerm%'
-                       OR name LIKE '%@searchTerm%'
-                       OR brand LIKE '%@searchTerm%'
-                       OR suplier LIKE '%@searchTerm%'
-                       OR description LIKE '%@searchTerm%'
-                       OR code LIKE '%@searchTerm%';";
+                query = @"SELECT id, name, code, description, price, suplier_price, in_stock, suplier, brand, unit, unit_type, created_at FROM products
+                  WHERE id LIKE @searchTerm
+                  OR name LIKE @searchTerm
+                  OR brand LIKE @searchTerm
+                  OR suplier LIKE @searchTerm
+                  OR description LIKE @searchTerm
+                  OR code LIKE @searchTerm
+                  ORDER BY id DESC;";
             }
 
             // Use a DataTable to store the query results
@@ -244,13 +245,14 @@ namespace StockManager3
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        if (searchproducttxtbox.Text != "")
+                        if (!string.IsNullOrWhiteSpace(searchproducttxtbox.Text) && searchproducttxtbox.Text != "Search Product")
                         {
-                            cmd.Parameters.AddWithValue("@searchTerm",searchproducttxtbox.Text.Trim());
+                            // Add the parameter for the search term
+                            cmd.Parameters.AddWithValue("@searchTerm", "%" + searchproducttxtbox.Text.Trim() + "%");
                         }
 
                         // Use MySqlDataAdapter to fill the DataTable
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn))
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
                             adapter.Fill(dataTable);
                         }
@@ -467,6 +469,16 @@ namespace StockManager3
         private void searchproducttxtbox_TextChanged(object sender, EventArgs e)
         {
             LoadDataIntoDataGridView();
+        }
+
+        private void searchproducttxtbox_Enter(object sender, EventArgs e)
+        {
+            //just keep these here until u get how to delete them without breaking the fucking program
+        }
+
+        private void searchproducttxtbox_Leave(object sender, EventArgs e)
+        {
+            //same with this one
         }
     }
 }
