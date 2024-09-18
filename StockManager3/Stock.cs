@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO.Pipelines;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace StockManager3
         {
             InitializeComponent();
             LoadDataIntoDataGridView();
+            disable_buttons();
         }
 
         //command prompt
@@ -221,7 +223,7 @@ namespace StockManager3
             string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
 
             string query = "SELECT id, name, code, description, price, suplier_price, in_stock, suplier, brand, unit, unit_type, created_at FROM products ORDER BY id DESC";
-            if (!string.IsNullOrWhiteSpace(searchproducttxtbox.Text) || searchproducttxtbox.Text!="Search Product")
+            if (!string.IsNullOrWhiteSpace(searchproducttxtbox.Text))
             {
                 query = @"SELECT id, name, code, description, price, suplier_price, in_stock, suplier, brand, unit, unit_type, created_at FROM products
                   WHERE id LIKE @searchTerm
@@ -245,7 +247,7 @@ namespace StockManager3
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        if (!string.IsNullOrWhiteSpace(searchproducttxtbox.Text) && searchproducttxtbox.Text != "Search Product")
+                        if (!string.IsNullOrWhiteSpace(searchproducttxtbox.Text))
                         {
                             // Add the parameter for the search term
                             cmd.Parameters.AddWithValue("@searchTerm", "%" + searchproducttxtbox.Text.Trim() + "%");
@@ -404,6 +406,9 @@ namespace StockManager3
                             cmd.Parameters.AddWithValue("@id", deleteproducttxtbox.Text);
                             // Execute the command
                             cmd.ExecuteNonQuery();
+                            //disabling and clearing 
+                            deleteproducttxtbox.Text = "";
+                            disable_buttons();
                         }
                     }
                     catch (Exception ex)
@@ -430,6 +435,8 @@ namespace StockManager3
 
                 // Set the id value to the TextBox
                 deleteproducttxtbox.Text = productId;
+                //abling products
+                able_buttons();
             }
         }
 
@@ -479,6 +486,138 @@ namespace StockManager3
         private void searchproducttxtbox_Leave(object sender, EventArgs e)
         {
             //same with this one
+        }
+
+        private void duplicateproductbtn_Click(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            prdctdetails product = null;
+            string query = null;
+            //find the product
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                query = "SELECT * FROM products WHERE id = @id;";
+
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        //add value
+                        cmd.Parameters.AddWithValue("@id", deleteproducttxtbox.Text);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())  // Check if there are results
+                            {
+                                product = new prdctdetails
+                                {
+                                    name = reader["name"].ToString(),
+                                    code = null,
+                                    description = reader["description"].ToString(),
+                                    price = float.Parse(reader["price"].ToString()),
+                                    supplier_price = float.Parse(reader["suplier_price"].ToString()),
+                                    in_stock = int.Parse(reader["in_stock"].ToString()),
+                                    supplier = reader["suplier"].ToString(),
+                                    brand = reader["brand"].ToString(),
+                                    unit = float.Parse(reader["unit"].ToString()),
+                                    unit_type = reader["unit_type"].ToString(),
+                                };
+
+                            }
+                            else
+                            {
+                                product = new prdctdetails { name = "[Product name is empty]" };  // Handle case where no product is found
+                                throw new ArgumentException("Product not found");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error : " + ex.Message);
+                }
+            }
+            query = "INSERT INTO products (name, code, description, price, suplier_price, in_stock, suplier, brand, unit, unit_type) " +
+                           "VALUES (@name, @code, @description, @price, @supplier_price, @in_stock, @supplier, @brand, @unit, @unit_type)";
+
+            // Use MySqlConnection and MySqlCommand to interact with the database
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+
+                        // Add parameters to avoid SQL injection
+                        cmd.Parameters.AddWithValue("@name", product.name);
+                        cmd.Parameters.AddWithValue("@code", product.code);
+                        cmd.Parameters.AddWithValue("@description", product.description);
+                        cmd.Parameters.AddWithValue("@price", product.price);
+                        cmd.Parameters.AddWithValue("@supplier_price", product.supplier_price);
+                        cmd.Parameters.AddWithValue("@in_stock", product.in_stock);
+                        cmd.Parameters.AddWithValue("@supplier", product.supplier);
+                        cmd.Parameters.AddWithValue("@brand", product.brand);
+                        cmd.Parameters.AddWithValue("@unit", product.unit);
+                        cmd.Parameters.AddWithValue("@unit_type", product.unit_type);
+
+                        // Open the connection to the database
+                        conn.Open();
+
+                        // Execute the INSERT command
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (MySqlException x)
+            {
+                //ERROR from sql
+                MessageBox.Show($"Connection unsuccesfull :(\n{x.Message}");
+            }
+            catch (Exception x)
+            {
+                //ERROR from program
+                MessageBox.Show($"Connection unsuccesfull :(\n{x.Message}");
+            }
+            LoadDataIntoDataGridView();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //able_buttons();
+        }
+
+        private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            //disable_buttons();
+        }
+
+        private void disable_buttons()
+        {
+            duplicateproductbtn.ForeColor = Color.Gray;
+            duplicateproductbtn.Enabled = false;
+
+            deleteproductbtn.ForeColor = Color.Gray;
+            deleteproductbtn.Enabled = false;
+        }
+
+        private void able_buttons()
+        {
+            duplicateproductbtn.ForeColor = Color.Black;
+            duplicateproductbtn.Enabled = true;
+
+            deleteproductbtn.ForeColor = Color.Black;
+            deleteproductbtn.Enabled = true;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            panel1.Visible = checkBox1.Checked;
         }
     }
 }

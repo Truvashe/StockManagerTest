@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
             panel1 = new Panel();
             label10 = new Label();
             unittypetxtbox = new TextBox();
@@ -53,6 +54,8 @@
             commandboxtxtbox = new TextBox();
             addprdctbtn = new Button();
             panel2 = new Panel();
+            pictureBox1 = new PictureBox();
+            duplicateproductbtn = new Button();
             searchproducttxtbox = new TextBox();
             searchproductbtn = new Button();
             addemptyproductbtn = new Button();
@@ -63,8 +66,10 @@
             clearboxescheckbox = new CheckBox();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
+            checkBox1 = new CheckBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -100,9 +105,11 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(984, 106);
             panel1.TabIndex = 0;
+            panel1.Visible = false;
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Location = new Point(789, 44);
             label10.Name = "label10";
@@ -112,6 +119,7 @@
             // 
             // unittypetxtbox
             // 
+            unittypetxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             unittypetxtbox.Location = new Point(851, 41);
             unittypetxtbox.Name = "unittypetxtbox";
             unittypetxtbox.Size = new Size(100, 23);
@@ -119,6 +127,7 @@
             // 
             // label11
             // 
+            label11.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Location = new Point(766, 15);
             label11.Name = "label11";
@@ -128,6 +137,7 @@
             // 
             // supplierpricetxtbox
             // 
+            supplierpricetxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             supplierpricetxtbox.Location = new Point(851, 12);
             supplierpricetxtbox.Name = "supplierpricetxtbox";
             supplierpricetxtbox.Size = new Size(100, 23);
@@ -135,6 +145,7 @@
             // 
             // label8
             // 
+            label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Location = new Point(628, 44);
             label8.Name = "label8";
@@ -144,6 +155,7 @@
             // 
             // unittxtbox
             // 
+            unittxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             unittxtbox.Location = new Point(663, 41);
             unittxtbox.Name = "unittxtbox";
             unittxtbox.Size = new Size(100, 23);
@@ -151,6 +163,7 @@
             // 
             // label9
             // 
+            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Location = new Point(624, 15);
             label9.Name = "label9";
@@ -160,6 +173,7 @@
             // 
             // pricetxtbox
             // 
+            pricetxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             pricetxtbox.Location = new Point(663, 12);
             pricetxtbox.Name = "pricetxtbox";
             pricetxtbox.Size = new Size(100, 23);
@@ -167,6 +181,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Location = new Point(431, 44);
             label6.Name = "label6";
@@ -176,6 +191,7 @@
             // 
             // brandtxtbox
             // 
+            brandtxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             brandtxtbox.Location = new Point(475, 41);
             brandtxtbox.Name = "brandtxtbox";
             brandtxtbox.Size = new Size(100, 23);
@@ -183,6 +199,7 @@
             // 
             // label7
             // 
+            label7.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label7.AutoSize = true;
             label7.Location = new Point(402, 15);
             label7.Name = "label7";
@@ -192,6 +209,7 @@
             // 
             // descriptiontxtbox
             // 
+            descriptiontxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             descriptiontxtbox.Location = new Point(475, 12);
             descriptiontxtbox.Name = "descriptiontxtbox";
             descriptiontxtbox.Size = new Size(100, 23);
@@ -199,6 +217,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Location = new Point(228, 44);
             label4.Name = "label4";
@@ -208,6 +227,7 @@
             // 
             // suppliertxtbox
             // 
+            suppliertxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             suppliertxtbox.Location = new Point(284, 41);
             suppliertxtbox.Name = "suppliertxtbox";
             suppliertxtbox.Size = new Size(100, 23);
@@ -215,6 +235,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Location = new Point(243, 15);
             label5.Name = "label5";
@@ -224,6 +245,7 @@
             // 
             // codetxtbox
             // 
+            codetxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             codetxtbox.Location = new Point(284, 12);
             codetxtbox.Name = "codetxtbox";
             codetxtbox.Size = new Size(100, 23);
@@ -231,6 +253,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Location = new Point(42, 44);
             label3.Name = "label3";
@@ -240,6 +263,7 @@
             // 
             // instocktxtbox
             // 
+            instocktxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             instocktxtbox.Location = new Point(97, 41);
             instocktxtbox.Name = "instocktxtbox";
             instocktxtbox.Size = new Size(100, 23);
@@ -247,6 +271,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(57, 15);
             label2.Name = "label2";
@@ -256,6 +281,7 @@
             // 
             // nomtxtbox
             // 
+            nomtxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             nomtxtbox.Location = new Point(97, 12);
             nomtxtbox.Name = "nomtxtbox";
             nomtxtbox.Size = new Size(100, 23);
@@ -263,6 +289,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Location = new Point(4, 75);
             label1.Name = "label1";
@@ -272,6 +299,7 @@
             // 
             // commandboxtxtbox
             // 
+            commandboxtxtbox.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             commandboxtxtbox.Location = new Point(97, 71);
             commandboxtxtbox.Name = "commandboxtxtbox";
             commandboxtxtbox.Size = new Size(748, 23);
@@ -279,6 +307,7 @@
             // 
             // addprdctbtn
             // 
+            addprdctbtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             addprdctbtn.Location = new Point(851, 71);
             addprdctbtn.Name = "addprdctbtn";
             addprdctbtn.Size = new Size(100, 23);
@@ -289,6 +318,10 @@
             // 
             // panel2
             // 
+            panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(checkBox1);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(duplicateproductbtn);
             panel2.Controls.Add(searchproducttxtbox);
             panel2.Controls.Add(searchproductbtn);
             panel2.Controls.Add(addemptyproductbtn);
@@ -302,12 +335,36 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(200, 461);
             panel2.TabIndex = 1;
+            panel2.Paint += panel2_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(169, 86);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(22, 17);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 23;
+            pictureBox1.TabStop = false;
+            // 
+            // duplicateproductbtn
+            // 
+            duplicateproductbtn.Enabled = false;
+            duplicateproductbtn.ForeColor = SystemColors.ButtonShadow;
+            duplicateproductbtn.Location = new Point(12, 247);
+            duplicateproductbtn.Name = "duplicateproductbtn";
+            duplicateproductbtn.Size = new Size(182, 23);
+            duplicateproductbtn.TabIndex = 28;
+            duplicateproductbtn.Text = "Duplicate product";
+            duplicateproductbtn.UseVisualStyleBackColor = true;
+            duplicateproductbtn.Click += duplicateproductbtn_Click;
             // 
             // searchproducttxtbox
             // 
             searchproducttxtbox.Location = new Point(12, 83);
             searchproducttxtbox.Name = "searchproducttxtbox";
-            searchproducttxtbox.Size = new Size(182, 23);
+            searchproducttxtbox.Size = new Size(154, 23);
             searchproducttxtbox.TabIndex = 27;
             searchproducttxtbox.TextChanged += searchproducttxtbox_TextChanged;
             searchproducttxtbox.Enter += searchproducttxtbox_Enter;
@@ -325,7 +382,7 @@
             // 
             // addemptyproductbtn
             // 
-            addemptyproductbtn.Location = new Point(12, 220);
+            addemptyproductbtn.Location = new Point(12, 189);
             addemptyproductbtn.Name = "addemptyproductbtn";
             addemptyproductbtn.Size = new Size(182, 23);
             addemptyproductbtn.TabIndex = 25;
@@ -336,6 +393,8 @@
             // allowdatachange
             // 
             allowdatachange.AutoSize = true;
+            allowdatachange.Checked = true;
+            allowdatachange.CheckState = CheckState.Checked;
             allowdatachange.Location = new Point(12, 310);
             allowdatachange.Name = "allowdatachange";
             allowdatachange.Size = new Size(158, 19);
@@ -346,7 +405,9 @@
             // 
             // deleteproductbtn
             // 
-            deleteproductbtn.Location = new Point(12, 278);
+            deleteproductbtn.Enabled = false;
+            deleteproductbtn.ForeColor = SystemColors.ButtonShadow;
+            deleteproductbtn.Location = new Point(12, 276);
             deleteproductbtn.Name = "deleteproductbtn";
             deleteproductbtn.Size = new Size(182, 23);
             deleteproductbtn.TabIndex = 24;
@@ -356,7 +417,7 @@
             // 
             // deleteproducttxtbox
             // 
-            deleteproducttxtbox.Location = new Point(12, 249);
+            deleteproducttxtbox.Location = new Point(12, 218);
             deleteproducttxtbox.Name = "deleteproducttxtbox";
             deleteproducttxtbox.Size = new Size(182, 23);
             deleteproducttxtbox.TabIndex = 23;
@@ -385,21 +446,36 @@
             // 
             panel3.Controls.Add(dataGridView1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(200, 0);
+            panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(984, 461);
+            panel3.Size = new Size(1184, 461);
             panel3.TabIndex = 2;
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Top;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Cursor = Cursors.Cross;
+            dataGridView1.Location = new Point(200, 0);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(984, 355);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellEnter += dataGridView1_CellEnter;
+            dataGridView1.CellLeave += dataGridView1_CellLeave;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(12, 360);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(181, 19);
+            checkBox1.TabIndex = 29;
+            checkBox1.Text = "Show Product Details T.Boxes";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // Stock
             // 
@@ -407,14 +483,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1184, 461);
             Controls.Add(panel1);
-            Controls.Add(panel3);
             Controls.Add(panel2);
+            Controls.Add(panel3);
             Name = "Stock";
             Text = "Stock";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -457,5 +534,8 @@
         private TextBox searchproducttxtbox;
         private Button searchproductbtn;
         private Button addemptyproductbtn;
+        private Button duplicateproductbtn;
+        private PictureBox pictureBox1;
+        private CheckBox checkBox1;
     }
 }
