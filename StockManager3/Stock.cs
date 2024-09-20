@@ -263,7 +263,7 @@ namespace StockManager3
                         dataGridView1.DataSource = dataTable;
 
                         //on readonly to prevent from wrong manipulation
-                        dataGridView1.ReadOnly = true;
+                        dataGridView1.ReadOnly = false;
                     }
                 }
                 catch (Exception ex)
@@ -523,7 +523,6 @@ namespace StockManager3
                                     unit = float.Parse(reader["unit"].ToString()),
                                     unit_type = reader["unit_type"].ToString(),
                                 };
-
                             }
                             else
                             {

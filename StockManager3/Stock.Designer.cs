@@ -54,6 +54,8 @@
             commandboxtxtbox = new TextBox();
             addprdctbtn = new Button();
             panel2 = new Panel();
+            label12 = new Label();
+            checkBox1 = new CheckBox();
             pictureBox1 = new PictureBox();
             duplicateproductbtn = new Button();
             searchproducttxtbox = new TextBox();
@@ -66,7 +68,6 @@
             clearboxescheckbox = new CheckBox();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
-            checkBox1 = new CheckBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -319,6 +320,7 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.Control;
+            panel2.Controls.Add(label12);
             panel2.Controls.Add(checkBox1);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(duplicateproductbtn);
@@ -336,6 +338,26 @@
             panel2.Size = new Size(200, 461);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(12, 221);
+            label12.Name = "label12";
+            label12.Size = new Size(116, 15);
+            label12.TabIndex = 23;
+            label12.Text = "Selected Product ID :";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(12, 360);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(181, 19);
+            checkBox1.TabIndex = 29;
+            checkBox1.Text = "Show Product Details T.Boxes";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // pictureBox1
             // 
@@ -417,9 +439,9 @@
             // 
             // deleteproducttxtbox
             // 
-            deleteproducttxtbox.Location = new Point(12, 218);
+            deleteproducttxtbox.Location = new Point(134, 218);
             deleteproducttxtbox.Name = "deleteproducttxtbox";
-            deleteproducttxtbox.Size = new Size(182, 23);
+            deleteproducttxtbox.Size = new Size(60, 23);
             deleteproducttxtbox.TabIndex = 23;
             // 
             // ReloadButton
@@ -465,17 +487,6 @@
             dataGridView1.CellEnter += dataGridView1_CellEnter;
             dataGridView1.CellLeave += dataGridView1_CellLeave;
             dataGridView1.CellValueChanged += dataGridView1_CellValueChanged;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(12, 360);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(181, 19);
-            checkBox1.TabIndex = 29;
-            checkBox1.Text = "Show Product Details T.Boxes";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // Stock
             // 
@@ -537,5 +548,6 @@
         private Button duplicateproductbtn;
         private PictureBox pictureBox1;
         private CheckBox checkBox1;
+        private Label label12;
     }
 }

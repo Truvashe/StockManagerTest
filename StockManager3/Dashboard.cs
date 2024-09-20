@@ -368,7 +368,9 @@ namespace StockManager3
 
         private void billmakerbtn_Click(object sender, EventArgs e)
         {
-            
+            BillMaker billMaker = new BillMaker();
+
+            billMaker.Show();
         }
 
         private void stockbtn_Click(object sender, EventArgs e)
